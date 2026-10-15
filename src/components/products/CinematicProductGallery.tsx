@@ -118,13 +118,22 @@ export const CinematicProductGallery: React.FC<CinematicProductGalleryProps> = (
 
   const activeMeta = getImageMeta(activeImage, activeIndex);
 
-  // Manual Navigation (NO auto-advance!)
+  // Navigation Handlers
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : allImages.length - 1));
   }, [allImages.length]);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev < allImages.length - 1 ? prev + 1 : 0));
+  }, [allImages.length]);
+
+  // Auto-advance slideshow every 1 second
+  useEffect(() => {
+    if (allImages.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev < allImages.length - 1 ? prev + 1 : 0));
+    }, 1000);
+    return () => clearInterval(interval);
   }, [allImages.length]);
 
   // Keyboard navigation for gallery & lightbox

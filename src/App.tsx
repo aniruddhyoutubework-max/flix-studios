@@ -190,19 +190,19 @@ const MainExperience: React.FC = () => {
                 {/* 2. Kinetic Visual Typographic Break */}
                 <KineticBreak />
 
-                {/* 3. Three Core Services */}
-                <ServicesSection
-                  onOpenHireUsWithCategory={handleOpenHireUs}
-                  servicesContent={settings.services_content}
-                />
-
-                {/* 4. Flagship Product Showcase (FlixCore Plugin) */}
+                {/* 3. Flagship Product Showcase (FlixCore Plugin) */}
                 <ProductShowcase
                   product={flagshipProduct}
                   reviews={reviews}
                   onOpenHireUs={() => handleOpenHireUs('Custom Plugin Development')}
                   isAdmin={isAdmin}
                   onOpenAdmin={() => setIsAdminOpen(true)}
+                />
+
+                {/* 4. Three Core Services (What We Build & Deliver) */}
+                <ServicesSection
+                  onOpenHireUsWithCategory={handleOpenHireUs}
+                  servicesContent={settings.services_content}
                 />
 
                 {/* 5. Transparent Pricing & Scope */}

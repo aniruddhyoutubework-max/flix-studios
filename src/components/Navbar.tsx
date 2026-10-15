@@ -24,7 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'services', 'products', 'pricing', 'process', 'about', 'reviews', 'contact'];
+      const sections = ['home', 'products', 'services', 'pricing', 'process', 'about', 'reviews', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section === 'home' ? 'hero' : section);
         if (el) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { Product, Review } from '../../types/database';
 import { FlixCoreLogo } from '../FlixCoreLogo';
@@ -75,6 +75,15 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   // Active showcase slide for genuine advertising graphics
   const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
+
+  // Auto-advance slideshow every 1 second
+  useEffect(() => {
+    if (productImages.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveSlideIndex((prev) => (prev < productImages.length - 1 ? prev + 1 : 0));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [productImages.length]);
 
   // Expandable technical deep-dive tabs
   const [activeTechnicalTab, setActiveTechnicalTab] = useState<
