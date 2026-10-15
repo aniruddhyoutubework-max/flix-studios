@@ -1,0 +1,138 @@
+{
+  "engine": "Flix Studios Motion-as-Code Engine v1.0",
+  "renderedAt": "2026-10-15T06:31:25.708Z",
+  "scenes": [
+    {
+      "id": "hero-accelerator",
+      "mp4": "/motion/hero-accelerator.mp4",
+      "webm": "/motion/hero-accelerator.webm",
+      "poster": "/motion/hero-accelerator-poster.png",
+      "mp4Size": 807936,
+      "webmSize": 382842,
+      "posterSize": 644110,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "flixcore-architecture",
+      "mp4": "/motion/flixcore-architecture.mp4",
+      "webm": "/motion/flixcore-architecture.webm",
+      "poster": "/motion/flixcore-architecture-poster.png",
+      "mp4Size": 197382,
+      "webmSize": 197575,
+      "posterSize": 98348,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "process-radar",
+      "mp4": "/motion/process-radar.mp4",
+      "webm": "/motion/process-radar.webm",
+      "poster": "/motion/process-radar-poster.png",
+      "mp4Size": 158174,
+      "webmSize": 144389,
+      "posterSize": 107195,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "services-orchestration",
+      "mp4": "/motion/services-orchestration.mp4",
+      "webm": "/motion/services-orchestration.webm",
+      "poster": "/motion/services-orchestration-poster.png",
+      "mp4Size": 291539,
+      "webmSize": 263855,
+      "posterSize": 368918,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "product-catalogue",
+      "mp4": "/motion/product-catalogue.mp4",
+      "webm": "/motion/product-catalogue.webm",
+      "poster": "/motion/product-catalogue-poster.png",
+      "mp4Size": 380279,
+      "webmSize": 266924,
+      "posterSize": 500654,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "product-cinematic",
+      "mp4": "/motion/product-cinematic.mp4",
+      "webm": "/motion/product-cinematic.webm",
+      "poster": "/motion/product-cinematic-poster.png",
+      "mp4Size": 1233191,
+      "webmSize": 572587,
+      "posterSize": 570245,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "flixcore-intro",
+      "mp4": "/motion/flixcore-intro.mp4",
+      "webm": "/motion/flixcore-intro.webm",
+      "poster": "/motion/flixcore-intro-poster.png",
+      "mp4Size": 1184118,
+      "webmSize": 565719,
+      "posterSize": 637288,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "flixcore-features",
+      "mp4": "/motion/flixcore-features.mp4",
+      "webm": "/motion/flixcore-features.webm",
+      "poster": "/motion/flixcore-features-poster.png",
+      "mp4Size": 143286,
+      "webmSize": 121021,
+      "posterSize": 131224,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "flixcore-gallery",
+      "mp4": "/motion/flixcore-gallery.mp4",
+      "webm": "/motion/flixcore-gallery.webm",
+      "poster": "/motion/flixcore-gallery-poster.png",
+      "mp4Size": 596937,
+      "webmSize": 268653,
+      "posterSize": 869879,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "flixcore-compat",
+      "mp4": "/motion/flixcore-compat.mp4",
+      "webm": "/motion/flixcore-compat.webm",
+      "poster": "/motion/flixcore-compat-poster.png",
+      "mp4Size": 416976,
+      "webmSize": 394927,
+      "posterSize": 591468,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    },
+    {
+      "id": "flixcore-purchase",
+      "mp4": "/motion/flixcore-purchase.mp4",
+      "webm": "/motion/flixcore-purchase.webm",
+      "poster": "/motion/flixcore-purchase-poster.png",
+      "mp4Size": 299844,
+      "webmSize": 213027,
+      "posterSize": 385965,
+      "frames": 180,
+      "fps": 30,
+      "duration": "6.0s"
+    }
+  ]
+}
