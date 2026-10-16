@@ -36,13 +36,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   if (!isOpen) return null;
 
   const links = [
-    { label: 'Services', href: '#services' },
     { label: 'Products', href: '/products' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Engineering Process', href: '#process' },
-    { label: 'About FlixCore', href: '#about' },
+    { label: 'Services', href: '#services' },
+    { label: 'Documentation', href: '/docs' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Verified Reviews', href: '#reviews' },
-    { label: 'Contact & Dispatch', href: '#contact' },
+    { label: 'Community Discord', href: 'https://discord.gg/flixcore' },
   ];
 
   return (

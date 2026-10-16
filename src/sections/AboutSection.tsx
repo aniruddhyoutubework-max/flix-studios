@@ -60,8 +60,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenHireUs, paragr
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column: Direct Studio Explanation */}
         <div ref={leftRef} data-reveal className="lg:col-span-6 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D7FF3F]/10 border border-[#D7FF3F]/20 text-xs font-mono text-[#D7FF3F]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D7FF3F]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00D2FF]/10 border border-[#00D2FF]/20 text-xs font-mono text-[#00D2FF]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF]" />
             <span>ABOUT FLIX STUDIOS</span>
           </div>
 
@@ -78,7 +78,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenHireUs, paragr
           <div className="pt-4 flex flex-wrap items-center gap-4">
             <button
               onClick={onOpenHireUs}
-              className="btn-primary text-xs px-7 py-3.5 shadow-lg shadow-[#D7FF3F]/20"
+              className="btn-primary text-xs px-7 py-3.5 shadow-lg shadow-[#00D2FF]/20"
             >
               <span>Hire Us</span>
               <ArrowRight className="w-4 h-4" />
@@ -103,7 +103,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenHireUs, paragr
                 data-stagger
                 className="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all space-y-3"
               >
-                <div className="w-10 h-10 rounded-2xl bg-[#D7FF3F]/10 border border-[#D7FF3F]/20 text-[#D7FF3F] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-[#00D2FF]/10 border border-[#00D2FF]/20 text-[#00D2FF] flex items-center justify-center">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold text-white tracking-tight">{p.title}</h3>
@@ -113,8 +113,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenHireUs, paragr
           })}
 
           {/* Standards Summary Banner */}
-          <div className="sm:col-span-2 p-5 rounded-3xl bg-[#0E0F14] border border-[#D7FF3F]/30 space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#D7FF3F]">
+          <div className="sm:col-span-2 p-5 rounded-3xl bg-[#0E0F14] border border-[#00D2FF]/30 space-y-2">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#00D2FF]">
               <CheckCircle2 className="w-4 h-4" />
               <span>THE FLIX STUDIOS STANDARD</span>
             </div>

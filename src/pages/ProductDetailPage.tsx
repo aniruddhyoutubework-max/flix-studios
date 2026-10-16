@@ -1239,13 +1239,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 </p>
               </div>
               <a
-                href={product.documentation_url || 'https://docs.flixstudios.dev/flixcore'}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={product.documentation_url || '/docs'}
                 className="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-mono text-xs flex items-center justify-between transition-colors border border-white/10 group"
               >
-                <span>Read Full Wiki</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#D7FF3F] group-hover:translate-x-0.5 transition-transform" />
+                <span>Read Official Docs (v1.0.4)</span>
+                <ExternalLink className="w-3.5 h-3.5 text-[#38BDF8] group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
 

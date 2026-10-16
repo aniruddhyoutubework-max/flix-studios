@@ -20,22 +20,22 @@ export const ContactFinale: React.FC<ContactFinaleProps> = ({
       <div
         ref={containerRef}
         data-reveal
-        className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-[#111216] to-[#08090B] p-8 md:p-16 overflow-hidden shadow-2xl"
+        className="relative rounded-3xl border border-white/15 bg-gradient-to-b from-[#12151E] via-[#0A0C10] to-[#07080B] p-8 md:p-16 overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.9)] mc-panel mc-panel-lime"
       >
-        {/* Directional Perspective Tunnel Effect */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-          <div className="w-[500px] h-[500px] border border-[#D7FF3F] rounded-full animate-ping duration-1000" />
-          <div className="w-[300px] h-[300px] border border-[#8B5CFF] rounded-full" />
-        </div>
+        {/* Subtle Voxel Grid in Background */}
+        <div className="absolute inset-0 mc-voxel-grid pointer-events-none opacity-40" />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#D7FF3F]">
-            <Terminal className="w-3.5 h-3.5" />
-            <span>START AN ENGAGEMENT</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00D2FF]/10 border border-[#00D2FF]/30 text-xs font-mono text-[#00D2FF] shadow-inner">
+            <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-ping" />
+            <span>COMMISSION DESK · IMMEDIATE DISPATCH</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase">
-            BUILD THE UNEXPECTED.
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase font-display leading-[1.08]">
+            READY TO POWER YOUR{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-white to-[#8B5CFF]">
+              MINECRAFT WORLD?
+            </span>
           </h2>
 
           <p className="text-sm md:text-base text-white/70 max-w-xl mx-auto leading-relaxed">
@@ -46,7 +46,7 @@ export const ContactFinale: React.FC<ContactFinaleProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button
               onClick={onOpenHireUs}
-              className="btn-primary text-xs px-8 py-3.5 shadow-xl shadow-[#D7FF3F]/25"
+              className="btn-primary text-xs px-8 py-3.5 shadow-xl shadow-[#00D2FF]/25"
             >
               <span>HIRE US</span>
               <ArrowRight className="w-4 h-4" />
@@ -64,9 +64,9 @@ export const ContactFinale: React.FC<ContactFinaleProps> = ({
           <div className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-white/50">
             <a
               href={`mailto:${companyEmail}`}
-              className="hover:text-[#D7FF3F] transition-colors flex items-center gap-2"
+              className="hover:text-[#00D2FF] transition-colors flex items-center gap-2"
             >
-              <Mail className="w-4 h-4 text-[#D7FF3F]" />
+              <Mail className="w-4 h-4 text-[#00D2FF]" />
               <span>Direct Dispatch: {companyEmail}</span>
             </a>
             <span className="hidden sm:inline">•</span>

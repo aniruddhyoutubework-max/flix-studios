@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { MotionPlayer } from '../motion/components/MotionPlayer';
-import { ProcessRadarScene } from '../motion/scenes/ProcessRadarScene';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { CheckCircle2, Terminal, ArrowRight, ShieldCheck, Cpu } from 'lucide-react';
-
+import { CheckCircle2, ArrowRight, ShieldCheck, Cpu, Code2, Terminal, Sparkles, Check } from 'lucide-react';
 import { ProcessStageItem } from '../types/database';
 
 interface ProcessProps {
@@ -18,94 +15,122 @@ export const Process: React.FC<ProcessProps> = ({ onOpenHireUs, stages }) => {
   const defaultSteps = [
     {
       num: '01',
-      title: 'REQUIREMENTS',
-      summary: 'Understand the server, goals, requirements, and edge cases.',
-      desc: 'We review your gameplay mechanics, player concurrency targets, existing server plugins, and network topology. We map out technical requirements and edge cases before writing a line of code.',
+      title: 'SPECIFICATION & SCOPE',
+      summary: 'Confirm gameplay mechanics, Minecraft versions & network topology.',
+      desc: 'We review your gameplay rules, concurrency targets, target API (Paper, Purpur, Folia, Fabric), and network topology. All requirements and edge cases are confirmed in writing before coding begins.',
       checklist: ['Gameplay mechanic scoping', 'Version compatibility targets', 'Edge-case boundary mapping'],
     },
     {
       num: '02',
-      title: 'ARCHITECTURE',
-      summary: 'Plan the plugin structure, configuration, APIs, storage, and permissions.',
-      desc: 'Designing the data model (MySQL/H2), event listeners, Redis messaging contracts, and permission hierarchies. Clean architecture guarantees maintainability as your server scales.',
-      checklist: ['Thread-safe storage schema', 'Redis pub/sub channel specs', 'Granular permission trees'],
+      title: 'ARCHITECTURE & DATA DESIGN',
+      summary: 'Thread-safe persistence, Redis channels, and permission hierarchies.',
+      desc: 'Designing asynchronous storage schemas (MySQL/H2 with HikariCP), Redis pub/sub messaging channels, and LuckPerms permission trees. Clean separation of concerns ensures zero main-thread tick lag.',
+      checklist: ['HikariCP connection pool', 'Redis pub/sub channels', 'Granular permission trees'],
     },
     {
       num: '03',
-      title: 'DEVELOPMENT',
-      summary: 'Implement readable, maintainable Java using modern APIs.',
-      desc: 'Coding in clean, documented Java 21 / Paper API with strict separation of concerns. No monolithic god-classes or unprofiled main-thread operations.',
-      checklist: ['Modern Paper/Purpur API', 'Asynchronous task scheduling', 'MiniMessage & Font glyph integration'],
+      title: 'JAVA 21 & API DEVELOPMENT',
+      summary: 'Clean, asynchronous implementation with modern Minecraft APIs.',
+      desc: 'Engineered strictly in clean, documented Java 21 using Paper/Purpur/Folia or Fabric APIs. Asynchronous event dispatching, thread-safe memory models, and MiniMessage text formatting.',
+      checklist: ['Modern Paper & Folia APIs', 'Asynchronous thread pools', 'MiniMessage & custom fonts'],
     },
     {
       num: '04',
-      title: 'TESTING',
-      summary: 'Check functionality, edge cases, permissions, performance risks, and compatibility.',
-      desc: 'Subjecting the plugin to high-load packet profiling using Spark, simulated latency variance, inventory desync attacks, and permission inheritance audits.',
-      checklist: ['Spark tick & memory profiling', 'Packet-injection stress tests', 'Multi-version cross-verification'],
+      title: 'CONCURRENCY & SPARK TESTING',
+      summary: 'Profile tick latency, memory stability, and packet stress tests.',
+      desc: 'Subjecting the software to high-concurrency simulation, Spark tick profiling, memory leak detection, inventory desync audits, and multi-version cross verification (1.8.8 through 1.21.4).',
+      checklist: ['Spark tick & memory profiling', 'Packet stress testing', 'Multi-version compatibility audits'],
     },
     {
       num: '05',
-      title: 'DELIVERY',
-      summary: 'Provide the plugin build, installation instructions, configuration guidance, and agreed docs.',
-      desc: 'Providing compiled, optimized JAR builds, annotated YAML configuration files, command cheat sheets, and installation runbooks for your sysadmin team.',
-      checklist: ['Optimized production JAR', 'Annotated config.yml templates', 'Admin & permission guide'],
+      title: 'PRODUCTION DELIVERY & DOCS',
+      summary: 'Compiled JAR build, annotated config.yml, and admin guide.',
+      desc: 'Delivery of optimized production JAR builds, fully annotated configuration templates, permission node references, and setup documentation for your staff.',
+      checklist: ['Optimized production JAR', 'Annotated config.yml files', 'Staff commands & permissions guide'],
     },
     {
       num: '06',
-      title: 'UPDATES',
-      summary: 'Handle maintenance, fixes, and updates according to the specific agreement for each project.',
-      desc: 'Post-delivery maintenance ensuring compatibility with new Paper/Minecraft releases, emergency hotfixes, and agreed SLA scope adjustments.',
-      checklist: ['Agreed SLA hotfix window', 'Major Minecraft update audits', 'Production issue escalation'],
+      title: 'POST-DELIVERY BUGFIX WARRANTY',
+      summary: '14-day warranty and active Minecraft update support.',
+      desc: '14-day post-delivery bugfix warranty ensuring seamless operation in your production environment, quick hotfixes, and update compatibility support.',
+      checklist: ['14-day bugfix warranty', 'Production hotfix support', 'Paper update compatibility audits'],
     },
   ];
 
   const steps = stages && stages.length > 0 ? stages : defaultSteps;
 
   return (
-    <section id="process" className="py-24 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-20">
-      <div ref={headerRef} data-reveal className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <section id="process" className="py-20 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-20">
+      {/* Section Header */}
+      <div ref={headerRef} data-reveal className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 text-left">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D7FF3F]/10 border border-[#D7FF3F]/20 text-xs font-mono text-[#D7FF3F] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#38BDF8]/10 border border-[#38BDF8]/20 text-xs font-mono text-[#38BDF8] mb-3">
             <Cpu className="w-3.5 h-3.5" />
-            <span>DISCIPLINED METHODOLOGY</span>
+            <span>MINECRAFT ENGINEERING METHODOLOGY</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-            ENGINEERING WORKFLOW
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase font-minecraft">
+            HOW WE BUILD YOUR SOFTWARE
           </h2>
-          <p className="text-sm md:text-base text-white/60 max-w-xl mt-3 leading-relaxed">
-            From technical requirements to multi-server deployment, our six-stage lifecycle eliminates
-            guesswork and delivers dependable server software.
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mt-2 leading-relaxed font-sans">
+            From technical requirement scoping to production deployment, our disciplined workflow guarantees 20.0 TPS stability and maintainable code.
           </p>
         </div>
 
         <button
           onClick={onOpenHireUs}
-          className="btn-primary self-start md:self-auto text-xs px-6 py-3"
+          className="px-5 py-3 rounded-xl bg-[#0284C7] hover:bg-[#38BDF8] text-white hover:text-black font-minecraft font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2 cursor-pointer self-start md:self-auto"
         >
-          <span>Hire Us</span>
+          <span>Commission a Project</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Interactive Radar Motion Video */}
-        <div className="lg:col-span-5 space-y-4">
-          <MotionPlayer scene={ProcessRadarScene} aspectRatio="1/1" />
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-xs font-mono text-white/60 space-y-2">
-            <div className="flex items-center gap-2 text-[#D7FF3F] font-bold">
-              <ShieldCheck className="w-4 h-4" />
-              <span>SLA & SCOPING CLARITY</span>
-            </div>
-            <p className="text-[11px] leading-relaxed text-white/50">
-              Projects are scoped individually with agreed milestones. We provide dependable, transparent
-              agreements without false promises of indefinite free labor or lifetime rewrites.
+      {/* Clean 2-Column Process Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Left Column: Active Step Deep Dive Card */}
+        <div className="lg:col-span-5 rounded-2xl bg-[#11141E] border border-white/10 p-6 space-y-5 text-left shadow-xl sticky top-24">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <span className="text-xs font-mono font-bold text-[#38BDF8] uppercase tracking-wider">
+              STAGE {steps[activeStep].num} OF {String(steps.length).padStart(2, '0')}
+            </span>
+            <span className="px-2.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[11px] font-bold">
+              Standard SLA
+            </span>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-minecraft">
+              {steps[activeStep].title}
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed font-sans">
+              {steps[activeStep].desc}
             </p>
+          </div>
+
+          <div className="space-y-2.5 pt-2 border-t border-white/5">
+            <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block font-bold">
+              Verified Deliverables:
+            </span>
+            <div className="space-y-2">
+              {steps[activeStep].checklist.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-200 font-mono">
+                  <div className="w-4 h-4 rounded-full bg-[#00D2FF]/20 text-[#00D2FF] flex items-center justify-center shrink-0">
+                    <Check className="w-3 h-3" />
+                  </div>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-black/40 border border-white/5 text-[11px] font-mono text-slate-400 flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-[#00D2FF] shrink-0" />
+            <span>Includes 14-day warranty &amp; post-delivery bugfix guarantee</span>
           </div>
         </div>
 
-        {/* Right Column: 6-Stage Timeline Breakdown */}
-        <div className="lg:col-span-7 space-y-3">
+        {/* Right Column: Step Selection List */}
+        <div className="lg:col-span-7 space-y-3 text-left">
           {steps.map((step, idx) => {
             const isSelected = activeStep === idx;
 
@@ -113,45 +138,34 @@ export const Process: React.FC<ProcessProps> = ({ onOpenHireUs, stages }) => {
               <div
                 key={idx}
                 onClick={() => setActiveStep(idx)}
-                className={`p-5 rounded-2xl border transition-all duration-200 cursor-pointer ${
+                className={`p-4 sm:p-5 rounded-2xl border transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? 'bg-[#0E0F14] border-[#D7FF3F]/50 shadow-xl'
-                    : 'bg-white/5 border-white/10 hover:border-white/20'
+                    ? 'border-[#00D2FF] bg-[#121624] shadow-lg shadow-[#00D2FF]/10'
+                    : 'bg-[#0E121E] border-white/10 hover:border-white/20 hover:bg-[#121624]'
                 }`}
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <span
-                      className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md ${
-                        isSelected ? 'bg-[#D7FF3F] text-black' : 'bg-white/10 text-white/60'
+                      className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg ${
+                        isSelected ? 'bg-[#00D2FF] text-[#08090B]' : 'bg-white/10 text-slate-400'
                       }`}
                     >
                       {step.num}
                     </span>
-                    <h3 className="text-base font-bold text-white tracking-tight">{step.title}</h3>
+                    <h4 className={`text-sm sm:text-base font-bold ${isSelected ? 'text-[#00D2FF]' : 'text-white'}`}>
+                      {step.title}
+                    </h4>
                   </div>
 
-                  <span className="text-xs font-mono text-white/50 text-left sm:text-right">
-                    {step.summary}
+                  <span className="text-xs font-mono text-slate-400 hidden sm:inline-block">
+                    Click to view
                   </span>
                 </div>
 
-                {isSelected && (
-                  <div className="mt-4 pt-4 border-t border-white/10 space-y-3 animate-fade-in">
-                    <p className="text-xs text-white/70 leading-relaxed">{step.desc}</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
-                      {step.checklist.map((item, iIdx) => (
-                        <div
-                          key={iIdx}
-                          className="flex items-center gap-1.5 text-[11px] font-mono text-white/80"
-                        >
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#D7FF3F] shrink-0" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <p className="text-xs text-slate-400 pt-2 line-clamp-1 font-sans pl-11">
+                  {step.summary}
+                </p>
               </div>
             );
           })}

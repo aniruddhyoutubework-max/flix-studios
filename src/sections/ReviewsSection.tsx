@@ -25,7 +25,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
     <section id="reviews" className="py-24 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-20">
       <div ref={headerRef} data-reveal className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D7FF3F]/10 border border-[#D7FF3F]/20 text-xs font-mono text-[#D7FF3F] mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00D2FF]/10 border border-[#00D2FF]/20 text-xs font-mono text-[#00D2FF] mb-4">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>PAID-PURCHASER VERIFICATION REQUIRED</span>
           </div>
@@ -43,7 +43,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
           className="btn-secondary self-start md:self-auto text-xs px-5 py-2.5"
         >
           <span>Submit Review via Account</span>
-          <ArrowRight className="w-3.5 h-3.5 text-[#D7FF3F]" />
+          <ArrowRight className="w-3.5 h-3.5 text-[#00D2FF]" />
         </button>
       </div>
 
@@ -78,7 +78,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
             <div
               key={rev.id}
               data-stagger
-              className="p-6 rounded-3xl bg-[#0B0C0E] border border-white/10 hover:border-[#D7FF3F]/30 transition-all flex flex-col justify-between space-y-4 shadow-xl"
+              className="p-6 rounded-3xl bg-[#0B0C0E] border border-white/10 hover:border-[#00D2FF]/30 transition-all flex flex-col justify-between space-y-4 shadow-xl"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -91,7 +91,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
 
                   {/* Verified Purchaser Badge */}
                   {rev.is_verified_purchaser && (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#D7FF3F]/10 border border-[#D7FF3F]/20 text-[10px] font-mono text-[#D7FF3F]">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#00D2FF]/10 border border-[#00D2FF]/20 text-[10px] font-mono text-[#00D2FF]">
                       <CheckCircle className="w-3 h-3" />
                       <span>VERIFIED PURCHASER</span>
                     </span>

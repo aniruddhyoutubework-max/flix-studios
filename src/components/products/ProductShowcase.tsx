@@ -244,13 +244,32 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       {/* ────────────────────────────────────────────────────────────────────────── */}
       {/* 1. PURPOSEFUL FEATURED PRODUCT SHOWCASE — FLIXCORE PLUGIN                 */}
       {/* ────────────────────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 rounded-3xl border border-white/10 bg-[#0B0C0E] p-6 md:p-10 space-y-8 shadow-2xl overflow-hidden">
+      <div className="relative z-10 rounded-3xl border border-white/15 bg-gradient-to-b from-[#0F1117] via-[#0A0B0E] to-[#08090B] p-6 md:p-10 space-y-8 shadow-[0_25px_70px_rgba(0,0,0,0.9)] overflow-hidden mc-panel">
+        {/* Minecraft Server Live HUD Banner */}
+        <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 rounded-2xl bg-black/70 border border-[#D7FF3F]/25 text-xs font-mono shadow-inner">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>TPS: 20.00 LOCKED</span>
+            </span>
+            <span className="text-white/30 hidden sm:inline">|</span>
+            <span className="text-[#D7FF3F] font-bold hidden sm:inline">FOLIA MULTITHREADED</span>
+            <span className="text-white/30 hidden md:inline">|</span>
+            <span className="text-cyan-400 font-bold hidden md:inline">0ms TICK SPIKE</span>
+          </div>
+
+          <div className="flex items-center gap-2.5 text-xs">
+            <span className="px-2 py-0.5 rounded bg-white/10 text-white/80 font-bold">MC 1.8.8 – 1.21.4</span>
+            <span className="px-2 py-0.5 rounded bg-[#8B5CFF]/20 text-[#8B5CFF] font-bold border border-[#8B5CFF]/30">BUILTBYBIT VERIFIED</span>
+          </div>
+        </div>
+
         {/* Top Product Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
           <div className="space-y-3 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D7FF3F]/10 border border-[#D7FF3F]/25 text-xs font-mono text-[#D7FF3F]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D7FF3F]/10 border border-[#D7FF3F]/30 text-xs font-mono text-[#D7FF3F]">
               <span className="w-2 h-2 rounded-full bg-[#D7FF3F] animate-pulse" />
-              <span className="font-bold tracking-wider uppercase">FEATURED FLAGSHIP PRODUCT</span>
+              <span className="font-bold tracking-wider uppercase">FEATURED FLAGSHIP PLUGIN</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase leading-none font-display">
@@ -260,23 +279,23 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-white/75 leading-relaxed font-sans font-normal pt-1">
+            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-sans font-normal pt-1">
               {product.description}
             </p>
 
             {/* Quick Spec Matrix */}
             <div className="flex flex-wrap items-center gap-2 pt-2 text-xs font-mono">
-              <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/90">
-                MC {product.supported_mc_versions}
+              <span className="px-3 py-1.5 rounded-xl bg-black/60 border border-white/10 text-white/90">
+                🎮 MC {product.supported_mc_versions}
               </span>
-              <span className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-white/90">
-                {product.server_software.split(',').slice(0, 3).join(', ')}
+              <span className="px-3 py-1.5 rounded-xl bg-black/60 border border-white/10 text-white/90">
+                ⚡ {product.server_software.split(',').slice(0, 3).join(', ')}
               </span>
-              <span className="px-3 py-1 rounded-lg bg-[#D7FF3F]/10 border border-[#D7FF3F]/20 text-[#D7FF3F] font-bold">
-                20.0 TPS ASYNC CORE
+              <span className="px-3 py-1.5 rounded-xl bg-[#D7FF3F]/15 border border-[#D7FF3F]/30 text-[#D7FF3F] font-bold">
+                ⚔️ 20.0 TPS ASYNC CORE
               </span>
-              <span className="px-3 py-1 rounded-lg bg-[#8B5CFF]/10 border border-[#8B5CFF]/20 text-[#8B5CFF] font-bold">
-                v{product.version} PRODUCTION
+              <span className="px-3 py-1.5 rounded-xl bg-[#8B5CFF]/15 border border-[#8B5CFF]/30 text-[#8B5CFF] font-bold">
+                🔮 v{product.version} PRODUCTION
               </span>
             </div>
           </div>
@@ -290,7 +309,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               onOpenAdmin={onOpenAdmin}
               onOpenHireUs={() => onOpenHireUs('Custom Plugin Development')}
               variant="primary"
-              className="w-full justify-center py-3.5 shadow-xl shadow-[#D7FF3F]/15 text-sm"
+              className="w-full justify-center py-3.5 shadow-xl shadow-[#D7FF3F]/20 text-sm"
             />
 
             <Link
@@ -303,7 +322,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
             <div className="flex items-center justify-between px-2 pt-1 text-[11px] font-mono text-white/50">
               <span>{product.price || '$49.99'} · Lifetime License</span>
-              <span className="text-[#D7FF3F]">Instant Delivery</span>
+              <span className="text-[#D7FF3F] font-bold">Instant Delivery</span>
             </div>
           </div>
         </div>
@@ -312,20 +331,33 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
         {/* 2. REAL ADVERTISING IMAGERY — VISUAL PRODUCT FOCUS                        */}
         {/* ────────────────────────────────────────────────────────────────────────── */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-white/50 px-1">
+          <div className="flex items-center justify-between text-xs font-mono text-white/60 px-1">
             <span className="text-[#D7FF3F] font-bold flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               <span>OFFICIAL PRODUCT MEDIA & GAMEPLAY DECK</span>
             </span>
-            <span>
-              Slide {activeSlideIndex + 1} of {productImages.length}
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#D7FF3F] animate-ping" />
+              <span className="text-white/80 font-bold">1.0s AUTO-CYCLE</span>
+              <span className="text-white/40">·</span>
+              <span>
+                Slide {activeSlideIndex + 1} of {productImages.length}
+              </span>
+            </div>
           </div>
 
-          {/* Main 16:9 Real Advertising Image Display */}
-          <div className="relative aspect-[16/9] w-full rounded-2xl md:rounded-3xl overflow-hidden border border-white/15 bg-[#08090B] shadow-[0_20px_60px_rgba(0,0,0,0.85)] group flex items-center justify-center">
+          {/* Main 16:9 Real Advertising Image Display with Gaming Monitor Frame */}
+          <div className="relative aspect-[16/9] w-full rounded-2xl md:rounded-3xl overflow-hidden border-2 border-[#232730] bg-[#050608] shadow-[0_25px_70px_rgba(0,0,0,0.95)] group flex items-center justify-center mc-panel-lime">
+            {/* 1-Second Auto-Cycle Progress Line */}
+            <div className="absolute top-0 inset-x-0 h-1 bg-white/10 z-30 overflow-hidden">
+              <div
+                key={activeSlideIndex}
+                className="h-full bg-gradient-to-r from-[#D7FF3F] via-cyan-400 to-[#8B5CFF] w-full transition-all duration-1000 ease-linear"
+              />
+            </div>
+
             {/* Ambient Background Flare */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none z-10" />
 
             <img
               src={currentImage}
@@ -336,8 +368,8 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
             {/* Category Tag Overlay */}
             <div className="absolute top-4 left-4 z-20 flex items-center gap-2 pointer-events-none">
-              <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/10 text-[10px] md:text-xs font-mono font-bold text-[#D7FF3F] uppercase tracking-wider">
-                {currentMeta.category}
+              <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-[#D7FF3F]/30 text-[10px] md:text-xs font-mono font-bold text-[#D7FF3F] uppercase tracking-wider shadow-lg">
+                ⚔️ {currentMeta.category}
               </span>
             </div>
 
@@ -345,7 +377,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             <button
               type="button"
               onClick={() => setIsLightboxOpen(true)}
-              className="absolute top-4 right-4 z-20 p-2.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-white/70 hover:text-white hover:scale-105 transition-all"
+              className="absolute top-4 right-4 z-20 p-2.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white/80 hover:text-white hover:border-[#D7FF3F] hover:scale-105 transition-all"
               title="View full screen"
             >
               <Maximize2 className="w-4 h-4 text-[#D7FF3F]" />
@@ -357,7 +389,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 <button
                   type="button"
                   onClick={handlePrevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-white/80 hover:text-white hover:bg-black/90 transition-all"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white hover:text-[#D7FF3F] hover:border-[#D7FF3F] hover:bg-black transition-all shadow-xl"
                   title="Previous image"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -365,7 +397,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 <button
                   type="button"
                   onClick={handleNextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-white/80 hover:text-white hover:bg-black/90 transition-all"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white hover:text-[#D7FF3F] hover:border-[#D7FF3F] hover:bg-black transition-all shadow-xl"
                   title="Next image"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -374,17 +406,23 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             )}
 
             {/* Bottom Caption Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-20 bg-gradient-to-t from-black/95 via-black/70 to-transparent backdrop-blur-[2px]">
+            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-20 bg-gradient-to-t from-black via-black/80 to-transparent backdrop-blur-[2px]">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#D7FF3F]/20 text-[#D7FF3F] font-bold">
+                  SLIDE {String(activeSlideIndex + 1).padStart(2, '0')}
+                </span>
+                <span className="text-xs font-mono text-white/50">Production Asset</span>
+              </div>
               <h4 className="text-base md:text-xl font-bold text-white tracking-tight">
                 {currentMeta.title}
               </h4>
-              <p className="text-xs md:text-sm text-white/75 mt-1 max-w-2xl leading-relaxed">
+              <p className="text-xs md:text-sm text-white/80 mt-1 max-w-2xl leading-relaxed">
                 {currentMeta.description}
               </p>
             </div>
           </div>
 
-          {/* Interactive Slide Selector Thumbnails */}
+          {/* Minecraft Hotbar Style Slide Selector Thumbnails */}
           <div className="grid grid-cols-5 sm:grid-cols-10 gap-2 pt-1">
             {productImages.map((img, idx) => {
               const isSelected = idx === activeSlideIndex;
@@ -393,20 +431,41 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                   key={idx}
                   type="button"
                   onClick={() => setActiveSlideIndex(idx)}
-                  className={`relative aspect-[16/9] rounded-xl overflow-hidden border transition-all duration-200 ${
+                  className={`relative aspect-[16/9] rounded-xl overflow-hidden transition-all duration-200 cursor-pointer ${
                     isSelected
-                      ? 'border-[#D7FF3F] ring-2 ring-[#D7FF3F]/50 scale-[1.03]'
-                      : 'border-white/10 opacity-50 hover:opacity-100 hover:border-white/30'
+                      ? 'mc-slot-active scale-[1.05]'
+                      : 'mc-slot opacity-60 hover:opacity-100 hover:border-white/40'
                   }`}
                   title={`View slide ${idx + 1}`}
                 >
                   <img src={img} alt={`Slide ${idx + 1}`} className="w-full h-full object-cover" />
-                  <span className="absolute bottom-1 right-1 text-[8px] font-mono font-bold bg-black/80 px-1 rounded text-white/80">
+                  <span className={`absolute bottom-1 right-1 text-[8px] font-mono font-bold px-1 rounded ${
+                    isSelected ? 'bg-[#D7FF3F] text-black' : 'bg-black/90 text-white/80'
+                  }`}>
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                 </button>
               );
             })}
+          </div>
+
+          {/* Live In-Game Command Simulator Bar */}
+          <div className="p-3.5 rounded-2xl bg-black/60 border border-white/10 font-mono text-xs flex flex-wrap items-center justify-between gap-3 shadow-inner">
+            <div className="flex items-center gap-2 text-white/90">
+              <span className="text-[#D7FF3F] font-bold">&gt;</span>
+              <span className="text-[#D7FF3F]">/flixcore</span>
+              <span className="text-white">duel create</span>
+              <span className="text-cyan-400">Ranked_Nodebuff</span>
+              <span className="text-white/40 hidden sm:inline">--arena=Vault_04</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-[11px]">
+              <span className="text-emerald-400 font-bold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+                ARENA #14 CLAIMED
+              </span>
+              <span className="text-white/30">|</span>
+              <span className="text-[#8B5CFF] font-bold">20.00 TPS</span>
+            </div>
           </div>
         </div>
       </div>
@@ -445,28 +504,28 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             return (
               <div
                 key={cap.id}
-                className="group relative p-6 rounded-3xl bg-[#0E0F14] border border-white/10 hover:border-[#D7FF3F]/40 transition-all duration-300 space-y-4 hover:shadow-2xl hover:shadow-black/60 flex flex-col justify-between"
+                className="group relative p-6 rounded-3xl bg-gradient-to-b from-[#111319] to-[#0A0B0E] border border-white/10 hover:border-[#D7FF3F]/50 transition-all duration-300 space-y-4 hover:shadow-[0_15px_40px_rgba(215,255,63,0.12)] flex flex-col justify-between mc-panel hover:-translate-y-1"
               >
                 <div className="space-y-3">
                   {/* Top Bar: Icon + Category Badge */}
                   <div className="flex items-center justify-between">
                     <div
-                      className="w-10 h-10 rounded-2xl flex items-center justify-center font-bold transition-transform group-hover:scale-105"
+                      className="w-11 h-11 rounded-2xl flex items-center justify-center font-bold transition-transform group-hover:scale-110 shadow-md"
                       style={{
                         backgroundColor: `${cap.accent}15`,
                         color: cap.accent,
-                        border: `1px solid ${cap.accent}30`,
+                        border: `1px solid ${cap.accent}40`,
                       }}
                     >
                       <IconComponent className="w-5 h-5" />
                     </div>
 
                     <span
-                      className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold"
+                      className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider"
                       style={{
-                        backgroundColor: `${cap.accent}10`,
+                        backgroundColor: `${cap.accent}15`,
                         color: cap.accent,
-                        border: `1px solid ${cap.accent}20`,
+                        border: `1px solid ${cap.accent}30`,
                       }}
                     >
                       {cap.tag}
@@ -474,20 +533,21 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                   </div>
 
                   {/* Title & Description */}
-                  <h4 className="text-base font-bold text-white group-hover:text-[#D7FF3F] transition-colors tracking-tight">
+                  <h4 className="text-base font-bold text-white group-hover:text-[#D7FF3F] transition-colors tracking-tight font-display">
                     {cap.title}
                   </h4>
-                  <p className="text-xs text-white/65 leading-relaxed font-sans">
+                  <p className="text-xs text-white/70 leading-relaxed font-sans">
                     {cap.description}
                   </p>
                 </div>
 
                 {/* Specs pill */}
-                <div className="pt-3 border-t border-white/5">
-                  <span className="text-[10px] font-mono text-white/40 block uppercase tracking-wider mb-1">
-                    RUNTIME SPECIFICATION
+                <div className="pt-3 border-t border-white/10">
+                  <span className="text-[10px] font-mono text-white/40 block uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D7FF3F]" />
+                    <span>RUNTIME SPECIFICATION</span>
                   </span>
-                  <span className="text-xs font-mono font-semibold text-white/80 block">
+                  <span className="text-xs font-mono font-semibold text-[#D7FF3F] block">
                     {cap.specs}
                   </span>
                 </div>

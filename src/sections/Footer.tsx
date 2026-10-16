@@ -35,8 +35,8 @@ export const Footer: React.FC<FooterProps> = ({
               Engineering enterprise-grade Minecraft server plugins, automated tournament engines, and
               multi-server network architecture.
             </p>
-            <div className="flex items-center gap-2 text-[11px] font-mono text-[#D7FF3F]">
-              <span className="w-2 h-2 rounded-full bg-[#D7FF3F] animate-pulse" />
+            <div className="flex items-center gap-2 text-[11px] font-mono text-[#00D2FF]">
+              <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
               <span>DISPATCH OPERATIONAL // 2026</span>
             </div>
           </div>
@@ -46,27 +46,27 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest">NAVIGATION</h4>
             <ul className="space-y-2 text-xs font-mono text-white/70">
               <li>
-                <a href="#services" className="hover:text-[#D7FF3F] transition-colors">
+                <a href="#services" className="hover:text-[#00D2FF] transition-colors">
                   Services
                 </a>
               </li>
               <li>
-                <a href="/products" className="hover:text-[#D7FF3F] transition-colors">
+                <a href="/products" className="hover:text-[#00D2FF] transition-colors">
                   Products Catalog
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-[#D7FF3F] transition-colors">
+                <a href="#pricing" className="hover:text-[#00D2FF] transition-colors">
                   Pricing & Scope
                 </a>
               </li>
               <li>
-                <a href="#process" className="hover:text-[#D7FF3F] transition-colors">
+                <a href="#process" className="hover:text-[#00D2FF] transition-colors">
                   Engineering Process
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-[#D7FF3F] transition-colors">
+                <a href="#about" className="hover:text-[#00D2FF] transition-colors">
                   About Flix Studios
                 </a>
               </li>

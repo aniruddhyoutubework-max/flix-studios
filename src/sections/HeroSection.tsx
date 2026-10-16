@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeroCanvas } from './HeroCanvas';
-import { ArrowRight, Terminal, Star, Sparkles, Shield, Cpu } from 'lucide-react';
+import { ArrowRight, ShoppingBag, ShieldCheck, Zap, Star, MessageSquare } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenHireUs: () => void;
@@ -16,93 +16,100 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   ctaPrimaryOverride,
 }) => {
   return (
-    <section id="hero" className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 px-4 md:px-8 overflow-hidden">
-      {/* Interactive 3D WebGL Showstopper Centerpiece in Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+    <section id="hero" className="relative min-h-[70vh] flex flex-col items-center justify-center pt-28 pb-12 px-4 md:px-8 overflow-hidden bg-[#0A0D14]">
+      {/* Minecraft Environment Banner Background with Vignette */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src="/products/flixcore/cover.png"
+          alt="Minecraft World Background"
+          className="w-full h-full object-cover opacity-20 filter blur-[1px] scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0D14]/90 via-[#0A0D14]/80 to-[#0A0D14]" />
+        <div className="absolute inset-0 bg-radial from-transparent via-[#0A0D14]/60 to-[#0A0D14]" />
+      </div>
+
+      {/* High-Performance 2D Minecraft Pixel Canvas Background (Zero Lag) */}
+      <div className="absolute inset-0 pointer-events-none z-1">
         <HeroCanvas />
       </div>
 
-      {/* Atmospheric Depth Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#08090B]/60 via-transparent to-[#08090B] pointer-events-none z-1" />
-
-      {/* Foreground Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
-        {/* Availability / Services Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl animate-fade-in shadow-xl max-w-full">
-          <span className="w-2 h-2 rounded-full bg-[#D7FF3F] animate-pulse shrink-0" />
-          <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-white/90 truncate">
-            MINECRAFT PLUGINS · CUSTOM MODS · SERVER SETUPS
+      {/* Foreground Hero Content */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-5 sm:space-y-6">
+        {/* Top Studio Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#121624]/90 border border-[#38BDF8]/40 shadow-md backdrop-blur-sm">
+          <span className="w-2 h-2 rounded-sm bg-[#38BDF8] animate-pulse shrink-0" />
+          <span className="text-[11px] font-minecraft tracking-wider text-slate-200 uppercase">
+            FLIX STUDIOS · MINECRAFT STORE
           </span>
         </div>
 
         {/* Primary Headline */}
-        <div className="space-y-3">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight uppercase leading-[1.05]">
+        <div className="space-y-2">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight uppercase leading-[1.2] font-minecraft">
             {headlineOverride ? (
               <span>{headlineOverride}</span>
             ) : (
               <>
-                WE DON'T JUST CREATE.
+                HIGH QUALITY MINECRAFT
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F4F3EE] to-white/70">
-                  WE MOVE WORLDS.
-                </span>
+                <span className="text-[#38BDF8]">PLUGINS, MODS &amp; SETUPS</span>
               </>
             )}
           </h1>
 
-          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-white/70 font-normal leading-relaxed pt-1 sm:pt-2">
+          <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-slate-300 font-normal leading-relaxed pt-1">
             {subheadlineOverride ||
-              'Flix Studios designs and engineers custom Minecraft server plugins, bespoke client/server mods, and complete server setups. Built for stability, performance, and maintainable architecture.'}
+              'Flix Studios develops high-performance Minecraft plugins, custom mods, and complete server networks. Built for 20.0 TPS with zero main-thread lag.'}
           </p>
         </div>
 
-        {/* Action Controls */}
+        {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <a
+            href="#products"
+            className="px-6 py-3 rounded-xl bg-[#0284C7] hover:bg-[#38BDF8] text-white hover:text-black font-minecraft text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#0284C7]/20 flex items-center gap-2 cursor-pointer"
+          >
+            <ShoppingBag className="w-4 h-4" />
+            <span>EXPLORE STORE</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+
           <button
             onClick={onOpenHireUs}
-            className="btn-primary text-xs px-7 py-3.5 shadow-xl shadow-[#D7FF3F]/25"
+            className="px-6 py-3 rounded-xl bg-[#121624] hover:bg-[#1A2033] border border-white/10 hover:border-[#38BDF8]/50 text-white font-minecraft text-xs transition-all flex items-center gap-2 cursor-pointer"
           >
+            <Zap className="w-4 h-4 text-[#38BDF8]" />
             <span>{ctaPrimaryOverride || 'HIRE US'}</span>
-            <ArrowRight className="w-4 h-4" />
           </button>
 
           <a
-            href="/products"
-            className="btn-secondary text-xs px-6 py-3.5 border border-white/20 hover:border-[#D7FF3F]/40 shadow-xl"
+            href="https://discord.gg/flixcore"
+            target="_blank"
+            rel="noreferrer"
+            className="px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-minecraft text-xs transition-all flex items-center gap-2"
           >
-            <span>EXPLORE PRODUCTS</span>
-            <ArrowRight className="w-4 h-4 text-[#D7FF3F]" />
-          </a>
-
-          <a
-            href="#pricing"
-            className="btn-secondary text-xs px-5 py-3.5"
-          >
-            <span>VIEW PRICING</span>
+            <MessageSquare className="w-4 h-4 text-[#38BDF8]" />
+            <span>DISCORD</span>
           </a>
         </div>
 
-        {/* Three Core Services Badges */}
-        <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-3xl mx-auto text-left">
-          <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <span className="text-[10px] font-mono text-[#D7FF3F] block uppercase">CUSTOM PLUGINS</span>
-            <span className="text-xs font-bold text-white">Paper, Purpur & Spigot</span>
+        {/* Clean, Single-Line Trust Bar */}
+        <div className="pt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-minecraft text-slate-300">
+          <div className="flex items-center gap-1.5">
+            <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+            <span>5.0 / 5.0 RATING</span>
           </div>
-
-          <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <span className="text-[10px] font-mono text-[#8B5CFF] block uppercase">CUSTOM MODS</span>
-            <span className="text-xs font-bold text-white">Fabric, NeoForge, Forge</span>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-sm bg-emerald-400" />
+            <span className="text-emerald-400">20.0 TPS ASYNC</span>
           </div>
-
-          <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <span className="text-[10px] font-mono text-[#D7FF3F] block uppercase">SERVER SETUPS</span>
-            <span className="text-xs font-bold text-white">Permissions, JVM & Tuning</span>
+          <div className="flex items-center gap-1.5">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#38BDF8]" />
+            <span>14-DAY WARRANTY</span>
           </div>
-
-          <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <span className="text-[10px] font-mono text-white/50 block uppercase">TRANSPARENT PRICING</span>
-            <span className="text-xs font-bold text-white">Fair & Agreed Scope</span>
+          <div className="flex items-center gap-1.5">
+            <Zap className="w-3.5 h-3.5 text-cyan-400" />
+            <span>FOLIA &amp; PAPER</span>
           </div>
         </div>
       </div>

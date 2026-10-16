@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Lenis from 'lenis';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { db, INITIAL_PRODUCTS, INITIAL_SETTINGS } from './lib/db';
 import { Product, Review, SiteSettings } from './types/database';
@@ -7,20 +6,21 @@ import { Product, Review, SiteSettings } from './types/database';
 import { Switch, Route } from 'wouter';
 import { ProductsPage } from './pages/ProductsPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
+import { DocsPage } from './pages/DocsPage';
 import { Navbar } from './components/Navbar';
 import { MobileMenu } from './components/MobileMenu';
-import { CustomCursor } from './components/CustomCursor';
 import { ScrollProgress } from './components/ScrollProgress';
-import { OpeningExperience } from './components/OpeningExperience';
 
 import { HeroSection } from './sections/HeroSection';
 import { KineticBreak } from './sections/KineticBreak';
 import { ServicesSection } from './sections/ServicesSection';
-import { ProductShowcase } from './components/products/ProductShowcase';
+import { MinecraftMarketplace } from './components/products/MinecraftMarketplace';
 import { PricingSection } from './sections/PricingSection';
 import { Process } from './sections/Process';
 import { AboutSection } from './sections/AboutSection';
 import { ReviewsSection } from './sections/ReviewsSection';
+import { TechStackSection } from './sections/TechStackSection';
+import { MinecraftFaqSection } from './sections/MinecraftFaqSection';
 import { ContactFinale } from './sections/ContactFinale';
 import { Footer } from './sections/Footer';
 
@@ -38,7 +38,6 @@ const MainExperience: React.FC = () => {
   const [isAccountOpen, setIsAccountOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showIntro, setShowIntro] = useState(true);
 
   // Data state
   const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
@@ -75,47 +74,22 @@ const MainExperience: React.FC = () => {
     return () => window.removeEventListener('flix_product_updated', handleSync);
   }, []);
 
-  // Initialize Lenis Smooth Scroll
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
-    });
-
-    let rafId: number;
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-
-    rafId = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
-    };
-  }, []);
-
   const flagshipProduct = products[0] || INITIAL_PRODUCTS[0];
 
   return (
-    <div className="min-h-screen bg-[#08090B] text-[#F4F3EE] relative selection:bg-[#D7FF3F] selection:text-[#08090B] w-full max-w-[100vw] overflow-x-hidden">
-      {/* Visual Cursor & Reading Progress */}
-      <CustomCursor />
+    <div className="min-h-screen bg-[#0B0E17] text-[#F8FAFC] relative selection:bg-[#00D2FF] selection:text-[#0B0E17] w-full max-w-[100vw] overflow-x-hidden">
+      {/* Reading Progress */}
       <ScrollProgress />
 
-      {/* Opening Intro Sequence */}
-      {showIntro && <OpeningExperience onComplete={() => setShowIntro(false)} />}
-
       <Switch>
+        <Route path="/docs/:section">
+          {() => <DocsPage />}
+        </Route>
+
+        <Route path="/docs">
+          {() => <DocsPage />}
+        </Route>
+
         <Route path="/products/:slug">
           {() => (
             <>
@@ -187,52 +161,40 @@ const MainExperience: React.FC = () => {
                   ctaPrimaryOverride={settings.cta_primary_override}
                 />
 
-                {/* 2. Kinetic Visual Typographic Break */}
-                <KineticBreak />
-
-                {/* 3. Flagship Product Showcase (FlixCore Plugin) */}
-                <ProductShowcase
-                  product={flagshipProduct}
-                  reviews={reviews}
-                  onOpenHireUs={() => handleOpenHireUs('Custom Plugin Development')}
-                  isAdmin={isAdmin}
+                {/* 2. Minecraft Store & Marketplace */}
+                <MinecraftMarketplace
+                  onOpenHireUs={handleOpenHireUs}
+                  products={products}
                   onOpenAdmin={() => setIsAdminOpen(true)}
+                  isAdmin={isAdmin}
                 />
 
-                {/* 4. Three Core Services (What We Build & Deliver) */}
+                {/* 3. Core Studio Disciplines (What We Build & Deliver) */}
                 <ServicesSection
                   onOpenHireUsWithCategory={handleOpenHireUs}
-                  servicesContent={settings.services_content}
                 />
 
-                {/* 5. Transparent Pricing & Scope */}
-                <PricingSection
-                  plans={settings.pricing_plans}
-                  introOverride={settings.pricing_intro_override}
-                  onOpenHireUsWithCategory={handleOpenHireUs}
-                />
+                {/* 4. 20.0 TPS Performance & Technical Architecture */}
+                <TechStackSection />
 
-                {/* 6. Six-Stage Disciplined Engineering Workflow */}
+                {/* 5. How We Build & Deliver (Methodology) */}
                 <Process
                   onOpenHireUs={() => handleOpenHireUs()}
-                  stages={settings.process_stages}
                 />
 
-                {/* 7. About FlixCore Studios */}
-                <AboutSection
-                  onOpenHireUs={() => handleOpenHireUs()}
-                  paragraphs={settings.about_paragraphs}
-                  pillars={settings.about_pillars}
-                />
-
-                {/* 8. Verified Customer Reviews */}
+                {/* 6. Verified Customer Reviews */}
                 <ReviewsSection
                   reviews={reviews}
                   onOpenAccount={() => setIsAccountOpen(true)}
                   onOpenHireUs={() => handleOpenHireUs()}
                 />
 
-                {/* 9. Contact Finale */}
+                {/* 7. Frequently Asked Questions */}
+                <MinecraftFaqSection
+                  onOpenHireUs={() => handleOpenHireUs()}
+                />
+
+                {/* 8. Community & Discord Callout */}
                 <ContactFinale
                   onOpenHireUs={() => handleOpenHireUs()}
                   onOpenAccount={() => setIsAccountOpen(true)}
